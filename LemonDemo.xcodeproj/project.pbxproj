@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B54C751C16BAD9B5005D4B74 /* LDProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B54C751B16BAD9B5005D4B74 /* LDProperty.m */; };
+		B54C751E16BAF626005D4B74 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B54C751D16BAF626005D4B74 /* README.md */; };
+		B5A9041016B9B7BE00AE7C1F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A9040F16B9B7BE00AE7C1F /* Cocoa.framework */; };
+		B5A9041A16B9B7BE00AE7C1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5A9041816B9B7BE00AE7C1F /* InfoPlist.strings */; };
+		B5A9041C16B9B7BE00AE7C1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A9041B16B9B7BE00AE7C1F /* main.m */; };
+		B5A9042316B9B7BE00AE7C1F /* LDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A9042216B9B7BE00AE7C1F /* LDAppDelegate.m */; };
+		B5A9042616B9B7BE00AE7C1F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5A9042416B9B7BE00AE7C1F /* MainMenu.xib */; };
+		B5A9042E16B9B7BE00AE7C1F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A9042D16B9B7BE00AE7C1F /* SenTestingKit.framework */; };
+		B5A9042F16B9B7BE00AE7C1F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A9040F16B9B7BE00AE7C1F /* Cocoa.framework */; };
+		B5A9043716B9B7BE00AE7C1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5A9043516B9B7BE00AE7C1F /* InfoPlist.strings */; };
+		B5A9043A16B9B7BE00AE7C1F /* LemonDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A9043916B9B7BE00AE7C1F /* LemonDemoTests.m */; };
+		B5A9044616B9B82400AE7C1F /* Grammar.lemon in Resources */ = {isa = PBXBuildFile; fileRef = B5A9044516B9B82400AE7C1F /* Grammar.lemon */; };
+		B5A9044D16B9B9F800AE7C1F /* LDProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A9044C16B9B9F800AE7C1F /* LDProtocol.m */; };
+		B5A9044F16B9BC8300AE7C1F /* Grammar.lemon in Sources */ = {isa = PBXBuildFile; fileRef = B5A9044516B9B82400AE7C1F /* Grammar.lemon */; };
+		B5A9045116B9C36300AE7C1F /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A9045016B9C36300AE7C1F /* ParseKit.framework */; };
+		B5A9045316B9C38100AE7C1F /* ParseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B5A9045016B9C36300AE7C1F /* ParseKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		B5A9044E16B9BC2B00AE7C1F /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.lemon";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h",
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).m",
+			);
+			script = "cp \"${INPUT_FILE_PATH}\" \"${DERIVED_FILES_DIR}\"\ncp \"${PROJECT_DIR}/lempar.c\" \"${DERIVED_FILES_DIR}\"\ncd \"${DERIVED_FILES_DIR}\"\n\n\"${DERIVED_FILES_DIR}\"/lemon \"${DERIVED_FILES_DIR}/${INPUT_FILE_NAME}\"\n\ncp \"${INPUT_FILE_BASE}.c\" \"${INPUT_FILE_BASE}.m\"\n\n";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXContainerItemProxy section */
+		B5A9043016B9B7BE00AE7C1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5A9040416B9B7BE00AE7C1F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5A9040B16B9B7BE00AE7C1F;
+			remoteInfo = LemonDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5A9045216B9C36E00AE7C1F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B5A9045316B9C38100AE7C1F /* ParseKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B54C751A16BAD9B5005D4B74 /* LDProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProperty.h; sourceTree = "<group>"; };
+		B54C751B16BAD9B5005D4B74 /* LDProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProperty.m; sourceTree = "<group>"; };
+		B54C751D16BAF626005D4B74 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		B54C752016BB0B06005D4B74 /* lemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lemon.c; sourceTree = "<group>"; };
+		B5A9040C16B9B7BE00AE7C1F /* LemonDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5A9040F16B9B7BE00AE7C1F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B5A9041216B9B7BE00AE7C1F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B5A9041316B9B7BE00AE7C1F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B5A9041416B9B7BE00AE7C1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B5A9041716B9B7BE00AE7C1F /* LemonDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LemonDemo-Info.plist"; sourceTree = "<group>"; };
+		B5A9041916B9B7BE00AE7C1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B5A9041B16B9B7BE00AE7C1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B5A9041D16B9B7BE00AE7C1F /* LemonDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LemonDemo-Prefix.pch"; sourceTree = "<group>"; };
+		B5A9042116B9B7BE00AE7C1F /* LDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDAppDelegate.h; sourceTree = "<group>"; };
+		B5A9042216B9B7BE00AE7C1F /* LDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDAppDelegate.m; sourceTree = "<group>"; };
+		B5A9042516B9B7BE00AE7C1F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		B5A9042C16B9B7BE00AE7C1F /* LemonDemoTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemonDemoTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5A9042D16B9B7BE00AE7C1F /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B5A9043416B9B7BE00AE7C1F /* LemonDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LemonDemoTests-Info.plist"; sourceTree = "<group>"; };
+		B5A9043616B9B7BE00AE7C1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B5A9043816B9B7BE00AE7C1F /* LemonDemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LemonDemoTests.h; sourceTree = "<group>"; };
+		B5A9043916B9B7BE00AE7C1F /* LemonDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LemonDemoTests.m; sourceTree = "<group>"; };
+		B5A9044316B9B80800AE7C1F /* lempar.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lempar.c; sourceTree = SOURCE_ROOT; };
+		B5A9044516B9B82400AE7C1F /* Grammar.lemon */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Grammar.lemon; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.c; };
+		B5A9044816B9B8B800AE7C1F /* LDParserIncludes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDParserIncludes.h; sourceTree = "<group>"; };
+		B5A9044B16B9B9F800AE7C1F /* LDProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LDProtocol.h; sourceTree = "<group>"; };
+		B5A9044C16B9B9F800AE7C1F /* LDProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LDProtocol.m; sourceTree = "<group>"; };
+		B5A9045016B9C36300AE7C1F /* ParseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseKit.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B5A9040916B9B7BE00AE7C1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9041016B9B7BE00AE7C1F /* Cocoa.framework in Frameworks */,
+				B5A9045116B9C36300AE7C1F /* ParseKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5A9042816B9B7BE00AE7C1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9042E16B9B7BE00AE7C1F /* SenTestingKit.framework in Frameworks */,
+				B5A9042F16B9B7BE00AE7C1F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B54C751F16BB0AF1005D4B74 /* Lemon */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9044316B9B80800AE7C1F /* lempar.c */,
+				B54C752016BB0B06005D4B74 /* lemon.c */,
+			);
+			name = Lemon;
+			sourceTree = "<group>";
+		};
+		B5A9040316B9B7BE00AE7C1F = {
+			isa = PBXGroup;
+			children = (
+				B54C751D16BAF626005D4B74 /* README.md */,
+				B5A9041516B9B7BE00AE7C1F /* LemonDemo */,
+				B5A9043216B9B7BE00AE7C1F /* LemonDemoTests */,
+				B5A9040E16B9B7BE00AE7C1F /* Frameworks */,
+				B5A9040D16B9B7BE00AE7C1F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B5A9040D16B9B7BE00AE7C1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9040C16B9B7BE00AE7C1F /* LemonDemo.app */,
+				B5A9042C16B9B7BE00AE7C1F /* LemonDemoTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B5A9040E16B9B7BE00AE7C1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9045016B9C36300AE7C1F /* ParseKit.framework */,
+				B5A9040F16B9B7BE00AE7C1F /* Cocoa.framework */,
+				B5A9042D16B9B7BE00AE7C1F /* SenTestingKit.framework */,
+				B5A9041116B9B7BE00AE7C1F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5A9041116B9B7BE00AE7C1F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9041216B9B7BE00AE7C1F /* AppKit.framework */,
+				B5A9041316B9B7BE00AE7C1F /* CoreData.framework */,
+				B5A9041416B9B7BE00AE7C1F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B5A9041516B9B7BE00AE7C1F /* LemonDemo */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9042116B9B7BE00AE7C1F /* LDAppDelegate.h */,
+				B5A9042216B9B7BE00AE7C1F /* LDAppDelegate.m */,
+				B5A9042416B9B7BE00AE7C1F /* MainMenu.xib */,
+				B5A9044716B9B84E00AE7C1F /* Parsing */,
+				B5A9044A16B9B9E900AE7C1F /* Models */,
+				B54C751F16BB0AF1005D4B74 /* Lemon */,
+				B5A9041616B9B7BE00AE7C1F /* Supporting Files */,
+			);
+			path = LemonDemo;
+			sourceTree = "<group>";
+		};
+		B5A9041616B9B7BE00AE7C1F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9041716B9B7BE00AE7C1F /* LemonDemo-Info.plist */,
+				B5A9041816B9B7BE00AE7C1F /* InfoPlist.strings */,
+				B5A9041B16B9B7BE00AE7C1F /* main.m */,
+				B5A9041D16B9B7BE00AE7C1F /* LemonDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5A9043216B9B7BE00AE7C1F /* LemonDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9043816B9B7BE00AE7C1F /* LemonDemoTests.h */,
+				B5A9043916B9B7BE00AE7C1F /* LemonDemoTests.m */,
+				B5A9043316B9B7BE00AE7C1F /* Supporting Files */,
+			);
+			path = LemonDemoTests;
+			sourceTree = "<group>";
+		};
+		B5A9043316B9B7BE00AE7C1F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9043416B9B7BE00AE7C1F /* LemonDemoTests-Info.plist */,
+				B5A9043516B9B7BE00AE7C1F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5A9044716B9B84E00AE7C1F /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9044816B9B8B800AE7C1F /* LDParserIncludes.h */,
+				B5A9044516B9B82400AE7C1F /* Grammar.lemon */,
+			);
+			name = Parsing;
+			sourceTree = "<group>";
+		};
+		B5A9044A16B9B9E900AE7C1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5A9044B16B9B9F800AE7C1F /* LDProtocol.h */,
+				B5A9044C16B9B9F800AE7C1F /* LDProtocol.m */,
+				B54C751A16BAD9B5005D4B74 /* LDProperty.h */,
+				B54C751B16BAD9B5005D4B74 /* LDProperty.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B5A9040B16B9B7BE00AE7C1F /* LemonDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5A9043D16B9B7BE00AE7C1F /* Build configuration list for PBXNativeTarget "LemonDemo" */;
+			buildPhases = (
+				B54C752216BB0FF3005D4B74 /* Build Lemon */,
+				B5A9040816B9B7BE00AE7C1F /* Sources */,
+				B5A9040916B9B7BE00AE7C1F /* Frameworks */,
+				B5A9040A16B9B7BE00AE7C1F /* Resources */,
+				B5A9045216B9C36E00AE7C1F /* CopyFiles */,
+			);
+			buildRules = (
+				B5A9044E16B9BC2B00AE7C1F /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = LemonDemo;
+			productName = LemonDemo;
+			productReference = B5A9040C16B9B7BE00AE7C1F /* LemonDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B5A9042B16B9B7BE00AE7C1F /* LemonDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5A9044016B9B7BE00AE7C1F /* Build configuration list for PBXNativeTarget "LemonDemoTests" */;
+			buildPhases = (
+				B5A9042716B9B7BE00AE7C1F /* Sources */,
+				B5A9042816B9B7BE00AE7C1F /* Frameworks */,
+				B5A9042916B9B7BE00AE7C1F /* Resources */,
+				B5A9042A16B9B7BE00AE7C1F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5A9043116B9B7BE00AE7C1F /* PBXTargetDependency */,
+			);
+			name = LemonDemoTests;
+			productName = LemonDemoTests;
+			productReference = B5A9042C16B9B7BE00AE7C1F /* LemonDemoTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B5A9040416B9B7BE00AE7C1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LD;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Menial;
+			};
+			buildConfigurationList = B5A9040716B9B7BE00AE7C1F /* Build configuration list for PBXProject "LemonDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B5A9040316B9B7BE00AE7C1F;
+			productRefGroup = B5A9040D16B9B7BE00AE7C1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B5A9040B16B9B7BE00AE7C1F /* LemonDemo */,
+				B5A9042B16B9B7BE00AE7C1F /* LemonDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B5A9040A16B9B7BE00AE7C1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9041A16B9B7BE00AE7C1F /* InfoPlist.strings in Resources */,
+				B5A9042616B9B7BE00AE7C1F /* MainMenu.xib in Resources */,
+				B5A9044616B9B82400AE7C1F /* Grammar.lemon in Resources */,
+				B54C751E16BAF626005D4B74 /* README.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5A9042916B9B7BE00AE7C1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9043716B9B7BE00AE7C1F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B54C752216BB0FF3005D4B74 /* Build Lemon */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Lemon";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/lemon",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "clang -o \"${DERIVED_FILES_DIR}/lemon\" \"${PROJECT_DIR}/LemonDemo/lemon.c\"\n";
+		};
+		B5A9042A16B9B7BE00AE7C1F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B5A9040816B9B7BE00AE7C1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9044F16B9BC8300AE7C1F /* Grammar.lemon in Sources */,
+				B5A9041C16B9B7BE00AE7C1F /* main.m in Sources */,
+				B5A9042316B9B7BE00AE7C1F /* LDAppDelegate.m in Sources */,
+				B5A9044D16B9B9F800AE7C1F /* LDProtocol.m in Sources */,
+				B54C751C16BAD9B5005D4B74 /* LDProperty.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5A9042716B9B7BE00AE7C1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9043A16B9B7BE00AE7C1F /* LemonDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5A9043116B9B7BE00AE7C1F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5A9040B16B9B7BE00AE7C1F /* LemonDemo */;
+			targetProxy = B5A9043016B9B7BE00AE7C1F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B5A9041816B9B7BE00AE7C1F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5A9041916B9B7BE00AE7C1F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B5A9042416B9B7BE00AE7C1F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5A9042516B9B7BE00AE7C1F /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		B5A9043516B9B7BE00AE7C1F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5A9043616B9B7BE00AE7C1F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B5A9043B16B9B7BE00AE7C1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B5A9043C16B9B7BE00AE7C1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B5A9043E16B9B7BE00AE7C1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LemonDemo/LemonDemo-Prefix.pch";
+				INFOPLIST_FILE = "LemonDemo/LemonDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B5A9043F16B9B7BE00AE7C1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LemonDemo/LemonDemo-Prefix.pch";
+				INFOPLIST_FILE = "LemonDemo/LemonDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B5A9044116B9B7BE00AE7C1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LemonDemo.app/Contents/MacOS/LemonDemo";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LemonDemo/LemonDemo-Prefix.pch";
+				INFOPLIST_FILE = "LemonDemoTests/LemonDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		B5A9044216B9B7BE00AE7C1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LemonDemo.app/Contents/MacOS/LemonDemo";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LemonDemo/LemonDemo-Prefix.pch";
+				INFOPLIST_FILE = "LemonDemoTests/LemonDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B5A9040716B9B7BE00AE7C1F /* Build configuration list for PBXProject "LemonDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5A9043B16B9B7BE00AE7C1F /* Debug */,
+				B5A9043C16B9B7BE00AE7C1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5A9043D16B9B7BE00AE7C1F /* Build configuration list for PBXNativeTarget "LemonDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5A9043E16B9B7BE00AE7C1F /* Debug */,
+				B5A9043F16B9B7BE00AE7C1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5A9044016B9B7BE00AE7C1F /* Build configuration list for PBXNativeTarget "LemonDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5A9044116B9B7BE00AE7C1F /* Debug */,
+				B5A9044216B9B7BE00AE7C1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B5A9040416B9B7BE00AE7C1F /* Project object */;
+}

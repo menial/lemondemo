@@ -1,0 +1,113 @@
+/*
+ This is the grammar file describing the format to be parsed.
+ 
+ It describes a limited subset of the Objective-C protocol definition.
+ In its current state, it can can only understand protocols containing @property definitions for objects. ie:
+ @property (modifier) Type *name;
+ 
+ It doesn't understand non-pointer types or properties for objects conforming to a protocol (id<NSObject>).
+ It doesn't understand method definitions.
+ It's just an example. You can extend it if you want.
+ */
+
+
+/*
+ Include a header containing any referenced types and our token definition.
+ */
+%include {
+#include "LDParserIncludes.h"
+}
+
+%name LDProtocolParser			/* Prefix for parser function names */
+%start_symbol root				/* The first item in the grammar */
+%token_prefix LDTK_				/* Prefix all token names with this */
+%token_type { LDParserToken }	/* Our token type. Defined in LDParserIncludes.h */
+
+/*
+ The string in all tokens is retained. Release it here.
+ 
+ Reference parsedObject to silence 'unused variable' warnings.
+ */
+%token_destructor { CFRelease($$.textValue); (void)parsedObject; }	
+%default_type { LDParserToken }
+%extra_argument { LDProtocol *__unsafe_unretained parsedObject }
+
+
+
+// This is the entry point for the grammar
+root ::= protocolStart protocolName conformToProtocols_optional protocolProperties_optional protocolEnd.
+
+
+// @protocol ... @end
+protocolStart	::= ATPROTOCOL.
+protocolEnd	::= ATEND.
+
+protocolName ::= word(N). {
+	[parsedObject setName:(__bridge NSString *)N.textValue];
+}
+
+
+
+/*
+ A protocol can conform to others
+ This is the <NSObject, NSCopying> bit and it is optional
+ */
+conformToProtocols_optional	::= LEFTANGLE protocolList RIGHTANGLE.
+conformToProtocols_optional	::= .
+
+protocolList					::= protocolList COMMA protocolListItem.
+protocolList					::= protocolListItem.
+protocolListItem				::= word(N). {
+	[[parsedObject additionalProtocols] addObject:(__bridge NSString *)N.textValue];
+}
+
+
+/*
+ There can be 0-n @property declarations in a protocol
+ */
+protocolProperties_optional		::= propertyList.
+protocolProperties_optional		::= .
+propertyList					::= propertyList SEMI property.
+propertyList					::= property.
+
+
+	/*
+	 This is where we start describing the @property declarations
+	 */
+	property			::= propertyStart propertyModifiers_optional propertyType STAR propertyName.
+	propertyStart		::= ATPROPERTY. {
+		LDProperty *property = [[LDProperty alloc] init];
+		[[parsedObject properties] addObject:property];
+	}
+
+	// Modifiers are optional, but there can be many of them
+	propertyModifiers_optional	::= LEFTPAREN modifierList RIGHTPAREN.
+	propertyModifiers_optional	::= LEFTPAREN RIGHTPAREN.
+	propertyModifiers_optional	::= .
+
+		// strong/weak/nonatomic/readonly etc
+		modifierList ::= modifierList COMMA modifier.
+		modifierList ::= modifier.
+		modifier ::= word(N). {
+			LDProperty *currentProperty = [[parsedObject properties] lastObject];
+			[currentProperty.modifiers addObject:(__bridge NSString *)N.textValue];
+		}
+
+	// The type is the word before the '*'
+	propertyType ::= word(N). {
+		LDProperty *currentProperty = [[parsedObject properties] lastObject];
+		currentProperty.type = (__bridge NSString *)N.textValue;
+	}
+
+	// And the name is the bit after it
+	propertyName ::= word(N). {
+		LDProperty *currentProperty = [[parsedObject properties] lastObject];
+		currentProperty.name = (__bridge NSString *)N.textValue;
+	}
+
+
+// A word is the generic text token in this case
+word(A) ::= ID(X). {
+	A = X;
+	CFRelease(X.textValue);
+}
