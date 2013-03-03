@@ -4,6 +4,8 @@ LemonDemo is a demonstration project showing how to integrate the [Lemon Parser 
 
 This sample project builds an app which can parse a limited subset of Objective-C protocol definitions.
 
+The blog post accompanying this project is available here: http://menial.co.uk/blog/2013/03/03/parsing-with-lemon/
+
 
 ## Why?
 
